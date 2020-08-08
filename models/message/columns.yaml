@@ -1,8 +1,16 @@
 # ===================================
-#  List Column Definitions
+#  Настройка полей, которые мы видим в админке в списке наших записей
 # ===================================
 
 columns:
     id:
         label: ID
         searchable: true
+    text:
+        label: Текст
+        searchable: true
+        type: text
+    user_id:
+        label: Пользователь
+        searchable: true
+        type: number
