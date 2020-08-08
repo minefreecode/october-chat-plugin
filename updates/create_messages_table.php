@@ -8,9 +8,12 @@ class CreateMessagesTable extends Migration
 {
     public function up()
     {
-        Schema::create('alekseypavlov_chat_messages', function (Blueprint $table) {
+        Schema::create('chat_messages', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('text');
+            $table->integer('user_id')->unsigned();
+            $table->index(['user_id']);
             $table->timestamps();
         });
     }

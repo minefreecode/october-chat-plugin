@@ -12,7 +12,7 @@ class Message extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'alekseypavlov_chat_messages';
+    public $table = 'chat_messages';
 
     /**
      * @var array Guarded fields
@@ -22,12 +22,15 @@ class Message extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['user_id', 'text'];
 
     /**
      * @var array Validation rules for attributes
      */
-    public $rules = [];
+    public $rules = [
+        'text' => 'required|string',
+        'user_id' => 'required|integer',
+    ];
 
     /**
      * @var array Attributes to be cast to native types
