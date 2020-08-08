@@ -67,7 +67,7 @@ class Plugin extends PluginBase
         return []; // Remove this line to activate
 
         return [
-            'aleksey_pavlov.chat.some_permission' => [
+            'alekseypavlov.chat.some_permission' => [
                 'tab' => 'chat',
                 'label' => 'Some permission'
             ],
@@ -81,15 +81,20 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
-
         return [
             'chat' => [
-                'label'       => 'chat',
-                'url'         => Backend::url('aleksey_pavlov/chat/mycontroller'),
-                'icon'        => 'icon-leaf',
-                'permissions' => ['aleksey_pavlov.chat.*'],
+                'label'       => 'Чат',
+                'url'         => \Backend::url('alekseypavlov/chat/settings'),
+                'icon'        => 'icon-user',
+                'permissions' => ['alekseypavlov.chat.*'],
                 'order'       => 500,
+                'sideMenu' => [
+                    'chat' => [
+                        'label'       => 'Чат',
+                        'icon'        => 'icon-user',
+                        'url'         => \Backend::url('alekseypavlov/chat/settings'),
+                    ],
+                ]
             ],
         ];
     }
