@@ -1,0 +1,16 @@
+{
+    "name": "alekseypavlov/chat",
+    "description": "Плагин чата",
+    "type": "library",
+    "require": {
+        "cboden/ratchet": "^0.3.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "leocavalcante",
+            "email": "lc@leocavalcante.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
