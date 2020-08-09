@@ -40,15 +40,7 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        \Backend\Controllers\Users::extendListColumns(function ($list) {
-            $list->addColumns([
-                'team' => [
-                    'label' => 'Team',
-                    'relation' => 'team',
-                    'select' => 'name'
-                ]
-            ]);
-        });
+
     }
 
     /**
@@ -58,10 +50,8 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return []; // Remove this line to activate
-
         return [
-            'AlekseyPavlov\Chat\Components\MyComponent' => 'myComponent',
+            'AlekseyPavlov\Chat\Components\Messages' => 'chat',
         ];
     }
 
