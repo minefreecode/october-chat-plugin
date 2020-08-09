@@ -4,9 +4,9 @@ use BackendMenu;
 use Backend\Classes\Controller;
 
 /**
- * Message Controller Back-end Controller
+ * Message Back-end Controller
  */
-class MessageController extends Controller
+class Message extends Controller
 {
     /**
      * @var array Behaviors that are implemented by this controller.
@@ -20,7 +20,7 @@ class MessageController extends Controller
      * @var string Configuration file for the `FormController` behavior.
      */
     public $formConfig = 'config_form.yaml';
-
+    public $relationConfig = 'config_relation.yaml';
     /**
      * @var string Configuration file for the `ListController` behavior.
      */
@@ -30,6 +30,6 @@ class MessageController extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Alekseypavlov.Chat', 'chat', 'messagecontroller');
+        BackendMenu::setContext('Alekseypavlov.Chat', 'chat', 'message');
     }
 }

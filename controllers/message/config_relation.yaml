@@ -1,0 +1,11 @@
+# ===================================
+#  Конфигурация связей
+# ===================================
+items:
+    label: Invoice Line Item
+    view:
+        list: $/rainlab/user/models/user/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/rainlab/user/models/user/fields.yaml
+        recordsPerPage: 10

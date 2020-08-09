@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Message
+
+# Model Form Field configuration
+form: $/alekseypavlov/chat/models/message/fields.yaml
+
+# Model Class name
+modelClass: Alekseypavlov\Chat\Models\Message
+
+# Default redirect location
+defaultRedirect: alekseypavlov/chat/message
+
+# Create page
+create:
+    title: Create Message
+    redirect: alekseypavlov/chat/message/update/:id
+    redirectClose: alekseypavlov/chat/message
+
+# Update page
+update:
+    title: Edit Message
+    redirect: alekseypavlov/chat/message
+    redirectClose: alekseypavlov/chat/message
+
+# Preview page
+preview:
+    title: Preview Message

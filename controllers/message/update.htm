@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('alekseypavlov/chat/messagecontroller') ?>">Message Controller</a></li>
+        <li><a href="<?= Backend::url('alekseypavlov/chat/message') ?>">Message</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -21,7 +21,7 @@
                     data-browser-validate
                     data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Saving MessageController..."
+                    data-load-indicator="Saving Message..."
                     class="btn btn-primary">
                     <u>S</u>ave
                 </button>
@@ -31,7 +31,7 @@
                     data-browser-validate
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Saving MessageController..."
+                    data-load-indicator="Saving Message..."
                     class="btn btn-default">
                     Save and Close
                 </button>
@@ -39,11 +39,11 @@
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"
                     data-request="onDelete"
-                    data-load-indicator="Deleting MessageController..."
-                    data-request-confirm="Delete this messagecontroller?">
+                    data-load-indicator="Deleting Message..."
+                    data-request-confirm="Delete this message?">
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('alekseypavlov/chat/messagecontroller') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('alekseypavlov/chat/message') ?>">Cancel</a>
                 </span>
             </div>
         </div>
@@ -53,6 +53,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('alekseypavlov/chat/messagecontroller') ?>" class="btn btn-default">Return to message controller list</a></p>
+    <p><a href="<?= Backend::url('alekseypavlov/chat/message') ?>" class="btn btn-default">Return to message controller list</a></p>
 
 <?php endif ?>

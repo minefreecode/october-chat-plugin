@@ -12,5 +12,5 @@ columns:
         type: text
     user_id:
         label: Пользователь
-        searchable: true
-        type: number
+        relation: user
+        select: username

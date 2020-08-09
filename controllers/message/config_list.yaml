@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/alekseypavlov/chat/models/messagecontroller/columns.yaml
+list: $/alekseypavlov/chat/models/message/columns.yaml
 
 # Model Class name
-modelClass: Alekseypavlov\Chat\Models\MessageController
+modelClass: Alekseypavlov\Chat\Models\Message
 
 # List Title
 title: Manage Message Controllers
 
 # Link URL for each record
-recordUrl: alekseypavlov/chat/messagecontroller/update/:id
+recordUrl: alekseypavlov/chat/message/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

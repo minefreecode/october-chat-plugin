@@ -7,8 +7,11 @@ fields:
         label: ID
         disabled: true
     user_id:
-        label: Пользователь
-        type: number
+        label: Пользова тель
+        span: auto
+        type: dropdown
+        valueFrom: user_id
+        nameFrom: username
     text:
         label: Текст
         type: text

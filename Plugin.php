@@ -40,7 +40,15 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-
+        \Backend\Controllers\Users::extendListColumns(function ($list) {
+            $list->addColumns([
+                'team' => [
+                    'label' => 'Team',
+                    'relation' => 'team',
+                    'select' => 'name'
+                ]
+            ]);
+        });
     }
 
     /**
@@ -84,7 +92,7 @@ class Plugin extends PluginBase
         return [
             'chat' => [
                 'label'       => 'Чат',
-                'url'         => \Backend::url('alekseypavlov/chat/settings'),
+                'url'         => \Backend::url('alekseypavlov/chat/message'),
                 'icon'        => 'icon-user',
                 'permissions' => ['alekseypavlov.chat.*'],
                 'order'       => 500,
@@ -92,7 +100,7 @@ class Plugin extends PluginBase
                     'chat' => [
                         'label'       => 'Чат',
                         'icon'        => 'icon-user',
-                        'url'         => \Backend::url('alekseypavlov/chat/settings'),
+                        'url'         => \Backend::url('alekseypavlov/chat/message'),
                     ],
                 ]
             ],
