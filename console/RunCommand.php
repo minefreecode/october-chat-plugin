@@ -3,7 +3,7 @@
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use LeoCavalcante\WebSockets\Classes\ServerFactory;
+use alekseypavlov\chat\Classes\ServerFactory;
 
 class RunCommand extends Command
 {

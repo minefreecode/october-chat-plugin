@@ -61,10 +61,10 @@ if (window.WebSocket === undefined)
         var $el   = $(this),
             $form = $el.closest('form'),
             data  = queryStringToObject($form.serialize()),
-            eventName = $el.data(TRIGGER_ATTR);
+            eventName = $el.data( 'websocket-on');
 
         var event = {
-            name: eventName,
+            name: 'websocket-on-submit',
             payload: data
         };
 
@@ -73,7 +73,7 @@ if (window.WebSocket === undefined)
 
     $.fn.websocketSend = websocketSend;
 
-    $('.chat-popup form').on('submit', '[data-websocket-event]', function (event) {
+    $('.chat-popup form').submit(function (event) {
         $(this).websocketSend();
         event.preventDefault();
     });
