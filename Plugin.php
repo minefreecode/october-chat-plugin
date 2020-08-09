@@ -30,7 +30,7 @@ class Plugin extends PluginBase
      */
     public function register()
     {
-
+        $this->registerConsoleCommand('chat-server.run', 'alekseypavlov\chat\Console\RunCommand');
     }
 
     /**

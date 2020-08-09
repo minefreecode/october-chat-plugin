@@ -1,4 +1,4 @@
-<?php namespace LeoCavalcante\WebSockets\Classes;
+<?php namespace alekseypavlov\chat\Classes;
 
 use Ratchet\Server\IoServer;
 use Ratchet\Http\HttpServer;

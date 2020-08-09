@@ -21,7 +21,16 @@ class Messages extends ComponentBase
 
     public function defineProperties()
     {
-        return [];
+        return [
+            'uri' => [
+                'title'             => 'URI',
+                'description'       => 'URI сервера веб-сокета',
+                'default'           => 'ws://localhost:8080/',
+                'type'              => 'string',
+                'validationPattern' => '^ws\:\/\/.*',
+                'validationMessage' => 'Введите валидный URI веб-сокета(ws://localhost:8080/)'
+            ]
+        ];
     }
 
     public function getMessages()
@@ -34,9 +43,14 @@ class Messages extends ComponentBase
      */
     public function onRun()
     {
+       //Получаем объект сообщений
        $this->messages = Message::orderBy('id')->get();
-       \Log::info($this->messages);
+
+       //Добавляем js самих веб-сокетов
+        $props = $this->getProperties();
+        $this->addJs('/plugins/alekseypavlov/chat/assets/javascript/websocket.js?'.http_build_query($props));
     }
+
 
 }
 

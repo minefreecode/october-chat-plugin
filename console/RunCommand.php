@@ -1,4 +1,4 @@
-<?php namespace LeoCavalcante\WebSockets\Console;
+<?php namespace alekseypavlov\chat\Console;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -10,7 +10,7 @@ class RunCommand extends Command
     /**
      * @var string The console command name.
      */
-    protected $name = 'websockets:run';
+    protected $name = 'chat-server:run';
 
     /**
      * @var string The console command description.
