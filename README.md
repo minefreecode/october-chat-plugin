@@ -5,7 +5,7 @@
 ### Запуск сервера
 
 ```shell
-php artisan websockets:run
+php artisan chat-server:run'
 ```
 
 Можно указать порт `--port` если хотите, по умолчанию `8080`.
@@ -22,33 +22,5 @@ php artisan websockets:run
 {% component messages %}
 ```
 
-
-
-**You are ready to rock on sockets. Build a chat app!**
-
-Don't forget to add [jQuery](http://jquery.com/) and `{% scripts %}` placeholder.
-```html
-url = "websockets"
-[websocket]
-==
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Web Sockets</title>
-    </head>
-    <body>
-        <ul data-websocket-onmessage="$(this).append('<li>'+event.payload.text+'</li>')"></ul>
-
-        <form role="form" data-websocket-event="message">
-            <input type="text" name="text">
-            <button type="submit">Send</button>
-        </form>
-
-        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-        {% scripts %}
-    </body>
-</html>
-```
-
-
+## Если нужна доработка пишите в Telegram
+Telegram - @programmer36
