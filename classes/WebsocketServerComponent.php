@@ -52,7 +52,8 @@ class WebsocketServerComponent implements MessageComponentInterface
         $event->payload->username = $created->user->username;
 
         foreach ($this->connections as $connection) {
-            if ($connection == $from_connection && !empty($event->broadcast)) {
+            //Сообщение отправляем только туда куда еще не отправляли
+            if ($connection == $from_connection) {
                 continue;
             }
 
