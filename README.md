@@ -17,7 +17,7 @@ php artisan chat-server:run
 По умолчанию `ws://localhost:8080/`.
 
 ```ini
-[websocket]
+[chat]
 ==
 {% component messages %}
 ```
