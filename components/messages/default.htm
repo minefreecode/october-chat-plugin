@@ -1,9 +1,11 @@
-{% for message in  __SELF__.getMessages %}
-<h4>{{ message.text }}</h4> <!--Выводим заголовок!-->
-{% endfor %}
 <div class="chat-popup" id="myForm">
     <form action="/action_page.php" class="form-container">
         <h1>Chat</h1>
+        <ul>
+            {% for message in  __SELF__.messages %}
+            <li>{{ message.user.username }}, {{ message.created_at }}<br/> {{ message.text }}</li> <!--Выводим сообщение!-->
+            {% endfor %}
+        </ul>
 
         <label for="msg"><b>Message</b></label>
         <textarea placeholder="Type message.." name="msg" required></textarea>

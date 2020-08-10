@@ -1,5 +1,6 @@
 <?php namespace alekseypavlov\chat\Classes;
 
+use alekseypavlov\Chat\Models\Message;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
@@ -21,10 +22,13 @@ class MessageComponent implements MessageComponentInterface
     {
         $event = json_decode($message);
 
+        Message::create($message);
+
         foreach ($this->peers as $peer) {
             if ($peer == $from && !empty($event->broadcast)) {
                 continue;
             }
+
 
             $peer->send($message);
         }
