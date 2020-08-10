@@ -1,7 +1,8 @@
-<?php namespace Alekseypavlov\Chat\Models;
+<?php namespace alekseypavlov\Chat\Models;
 
 use Model;
 use RainLab\User\Models\User;
+
 /**
  * Message Model
  */
@@ -64,7 +65,7 @@ class Message extends Model
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany =[];
+    public $hasMany = [];
     public $belongsTo = ['user' => [User::class],];
     public $belongsToMany = [];
     public $morphTo = [];
@@ -77,4 +78,6 @@ class Message extends Model
     {
         return User::lists('username', 'id');
     }
+
+
 }

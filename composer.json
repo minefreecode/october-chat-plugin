@@ -3,13 +3,14 @@
     "description": "Плагин чата",
     "type": "library",
     "require": {
+        "october/rain": "~1.0",
         "cboden/ratchet": "^0.3.5"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": "leocavalcante",
-            "email": "lc@leocavalcante.com"
+            "name": "alekseypavlov",
+            "email": "av.pavlow@gmail.com"
         }
     ],
     "minimum-stability": "dev"

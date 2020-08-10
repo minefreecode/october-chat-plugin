@@ -35,7 +35,7 @@ class Messages extends ComponentBase
 
     public function getMessages()
     {
-        return Message::orderBy('id')->get();
+        return Message::orderBy('id')->with('user')->get();
     }
 
     /**
@@ -45,22 +45,11 @@ class Messages extends ComponentBase
     {
        //Получаем объект сообщений
        $this->messages = Message::orderBy('id')->get();
+
         //Добавляем js самих веб-сокетов
         $props = $this->getProperties();
         $this->addJs('/plugins/alekseypavlov/chat/assets/javascript/websocket.js?'.http_build_query($props));
     }
-
-    /**
-     * Executed when this component is rendered on a page or layout.
-     */
-    public function onRender()
-    {
-        //Добавляем js самих веб-сокетов
-        $props = $this->getProperties();
-        $this->addJs('/plugins/alekseypavlov/chat/assets/javascript/websocket.js?'.http_build_query($props));
-    }
-
-
 
 }
 

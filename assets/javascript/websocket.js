@@ -46,15 +46,8 @@ if (window.WebSocket === undefined)
             throw new Error('Неправильное имя события.');
         }
 
-        var attrName = 'websocket-on' + event.name,
-            selector = '[data-' + attrName + ']';
 
-        //Инициируем событие что пришел запрос с сервера
-        $(document).trigger(jQuery.Event('websocket' + ':' + event.name, {payload: event.payload}));
 
-        $(selector).each(function () {
-            eval('(function(event) {' + $(this).data(attrName) + '}.call(this, event))');
-        });
     }
 
     function websocketSend() {
@@ -73,6 +66,7 @@ if (window.WebSocket === undefined)
 
     $.fn.websocketSend = websocketSend;
 
+    //Отправка сообщения с формы
     $('.chat-popup form').submit(function (event) {
         $(this).websocketSend();
         event.preventDefault();
