@@ -1,4 +1,4 @@
-<?php namespace Alekseypavlov\Chat\Components;
+<?php namespace alekseypavlov\Chat\Components;
 
 use alekseypavlov\Chat\Models\Message;
 use Cms\Classes\ComponentBase;

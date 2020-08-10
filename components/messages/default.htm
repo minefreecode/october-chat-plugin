@@ -2,14 +2,15 @@
     <form action="/action_page.php" class="form-container">
         <h1>Chat</h1>
         <ul>
-            {% for message in  __SELF__.messages %}
-            <li>{{ message.user.username }}, {{ message.created_at }}<br/> {{ message.text }}</li> <!--Выводим сообщение!-->
+            {% for message in __SELF__.messages %}
+            <li>{{ message.user.username }}, {{ message.created_at }}<br/> {{ message.text }}</li>
+            <!--Выводим сообщение!-->
             {% endfor %}
         </ul>
 
         <label for="msg"><b>Message</b></label>
         <textarea placeholder="Type message.." name="msg" required></textarea>
-
+        <input name="user_id" value="{{user.id}}" type="hidden">
         <button type="submit" class="btn">Send</button>
         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
     </form>

@@ -46,10 +46,12 @@ if (window.WebSocket === undefined)
             throw new Error('Неправильное имя события.');
         }
 
-
-
+        $('.chat-popup form ul').append("<li>" + event.payload.created_at.date + ", " + event.payload.username+ "<br/>"+  event.payload.msg+ "</li>");
     }
 
+    /**
+     * Отправка сообщений на сервер веб-сокетов
+     */
     function websocketSend() {
         var $el   = $(this),
             $form = $el.closest('form'),
@@ -61,14 +63,15 @@ if (window.WebSocket === undefined)
             payload: data
         };
 
-        websocket.send(JSON.stringify(event));
+        websocket.send(JSON.stringify(event));//Отправить сериализированный объект
     }
 
+    //Привязываем функцию к JQuery-объектам
     $.fn.websocketSend = websocketSend;
 
     //Отправка сообщения с формы
     $('.chat-popup form').submit(function (event) {
-        $(this).websocketSend();
+        $(this).websocketSend();//Вызов функции отправки
         event.preventDefault();
     });
 
@@ -78,6 +81,8 @@ if (window.WebSocket === undefined)
         //Свойства веб-сокетов
     var properties = queryStringToObject(getQueryString(), true),
         websocket = null;
+
+    //Создаем клиентский сервер
     websocket = new WebSocket(properties.uri);
     websocket.onmessage = onMessage;
 

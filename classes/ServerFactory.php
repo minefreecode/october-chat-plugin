@@ -6,8 +6,12 @@ use Ratchet\WebSocket\WsServer;
 
 class ServerFactory
 {
+    /** Создать сервер веб-сокетов
+     * @param $port
+     * @return IoServer
+     */
     public static function create($port)
     {
-        return IoServer::factory(new HttpServer(new WsServer(new MessageComponent())), $port);
+        return IoServer::factory(new HttpServer(new WsServer(new WebsocketServerComponent())), $port);
     }
 }
