@@ -5,7 +5,7 @@
 ### Запуск сервера
 
 ```shell
-php artisan chat-server:run'
+php artisan chat-server:run
 ```
 
 Можно указать порт `--port` если хотите, по умолчанию `8080`.
