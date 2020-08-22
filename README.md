@@ -1,4 +1,4 @@
-# Chat plugin for the popular October CMS using websockets (без других сторонних ресурсов)
+# Extended chat plugin for the popular October CMS using websockets (без других сторонних ресурсов)
 Чат интегририруется с вашими существующими аккаунтами пользователей  `"october/rain"` автоматически. Напомню что данный плагин
 часто импользуется с `october`-шаблоном автоматом. При этом в вашей БД CMS должна быть таблица `users`. Поле `avatar` с картинками
 в `users` вы должны добавить сами
@@ -10,16 +10,7 @@ Add folder `alekseypavlov` to `plugins` as `plugins/alekseypavlov`
 `php artisan plugin:refresh alekseypavlov.chat`
 При этом автоматом создается таблица в БД
 ``
-chat_messages;
-+------------+------------------+------+-----+---------+----------------+
-| Field      | Type             | Null | Key | Default | Extra          |
-+------------+------------------+------+-----+---------+----------------+
-| id         | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-| text       | varchar(255)     | NO   |     | NULL    |                |
-| user_id    | int(10) unsigned | NO   | MUL | NULL    |                |
-| created_at | timestamp        | YES  |     | NULL    |                |
-| updated_at | timestamp        | YES  |     | NULL    |                |
-+------------+------------------+------+-----+---------+----------------+
+chat_messages(id, text, user_id, created_at, updated_at);
 ``
 
 ### Server start

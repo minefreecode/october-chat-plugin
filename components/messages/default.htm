@@ -3,15 +3,28 @@
         <h1>Chat</h1>
         <ul>
             {% for message in __SELF__.messages %}
-            <li><img src="{{ '/plugins/alekseypavlov/chat/assets/images/unnamed.png'|app }}" alt="avatar" /> {{ message.user.username }}, {{ message.created_at }}<br/> {{ message.text }}</li>
+            <li class="user-message">
+                <div class="user-info">
+                    <img src="{{ '/plugins/alekseypavlov/chat/assets/images/unnamed.png'|app }}" alt="avatar"/>
+                    <div class="about">
+                        <div class="name"> {{ message.user.username }}, {{ message.created_at }}</div>
+                    </div>
+                    <br/>
+                </div>
+                <div class="message-text">
+                    {{ message.text }}
+                </div>
+            </li>
             <!--Выводим сообщение!-->
             {% endfor %}
         </ul>
 
-        <label for="msg"><b>Message</b></label>
-        <textarea placeholder="Type message.." name="msg" required></textarea>
-        <input name="user_id" value="{{user.id}}" type="hidden">
-        <button type="submit" class="btn">Send</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        <div class="send-form">
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+            <br>
+            <input name="user_id" value="{{user.id}}" type="hidden">
+            <button type="submit" class="">Send</button>
+            <button type="button" class="" onclick="closeForm()">Close</button>
+        </div>
     </form>
 </div>

@@ -42,8 +42,6 @@ class WebsocketServerComponent implements MessageComponentInterface
      */
     public function onMessage(ConnectionInterface $from_connection, $message)
     {
-        \Log::info($message);
-
         $event = json_decode($message);
 
         //Добавляем сообщение в БД

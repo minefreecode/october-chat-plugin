@@ -1,10 +1,45 @@
+.chat-popup {
+    padding-left: 10px !important;
+    background: lightyellow;
+}
+
+.chat-popup h1{
+    color: goldenrod;
+}
+
+.chat-popup .send-form{
+    margin-left: 30px;
+}
+
+.chat-popup .user-info{
+    color: slategray;
+}
+
 .chat-popup form{
-    background: #C5DDEB;
     font: 14px/20px "Lato", Arial, sans-serif;
     padding: 40px 0;
-    color: white;
+    color: silver;
 }
 
 .chat-popup img{
     max-width: 15px;
+    margin-right: 10px;
+}
+
+
+
+.chat-popup img {
+    float: left;
+}
+
+.chat-popup .about {
+    float: left;
+}
+
+.chat-popup .user-message{
+    margin-bottom: 15px;
+}
+
+.send-form textarea{
+    width: 100%;
 }
