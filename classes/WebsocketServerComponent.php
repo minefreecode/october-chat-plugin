@@ -1,6 +1,8 @@
 <?php namespace alekseypavlov\chat\Classes;
 
 use alekseypavlov\Chat\Models\Message;
+use Cms\Classes\ComponentBase;
+use October\Rain\Argon\Argon;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
@@ -45,11 +47,14 @@ class WebsocketServerComponent implements MessageComponentInterface
         $event = json_decode($message);
 
         //Добавляем сообщение в БД
+        $event->payload->msg = str_replace('%20', ' ', $event->payload->msg);
         $created = Message::create(['user_id' => $event->payload->user_id, 'text' => $event->payload->msg]);
         $created->load(['user']);//Обновляем данные пользователя
 
-        $event->payload->created_at = $created->created_at;
         $event->payload->username = $created->user->username;
+        $date = Argon::createFromFormat("Y-m-d H:i:s", $created->created_at);
+        $event->payload->created_at = $date->format("H:i:s");
+        $event->payload->date = $date->format("Y-m-d");
 
         foreach ($this->connections as $connection) {
             //Сообщение отправляем только туда куда еще не отправляли

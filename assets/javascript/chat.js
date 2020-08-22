@@ -46,17 +46,35 @@ if (window.WebSocket === undefined)
             throw new Error('Неправильное имя события.');
         }
 
-        $('.chat-popup form ul').append("<li>" + event.payload.created_at.date + ", " + event.payload.username+ "<br/>"+  event.payload.msg+ "</li>");
+        let last_date = $('span.date:last').text().trim();
+
+        let item = (last_date != event.payload.date ? '<span class="date">' + event.payload.created_at + '</span>' : '')
+            +
+            `<li class="user-message">
+            <div class="user-info">
+                <img src="/plugins/alekseypavlov/chat/assets/images/unnamed.png" alt="avatar"/>
+                <div class="about">
+                    <div class="name">` + event.payload.username + `, ` + event.payload.created_at + `</div>
+                </div>
+                <br/>
+            </div>
+            <div class="message-text">
+                ` + event.payload.msg + `
+            </div>
+        </li>`;
+
+
+        $('.chat-popup form ul').append(item);
     }
 
     /**
      * Отправка сообщений на сервер веб-сокетов
      */
     function websocketSend() {
-        var $el   = $(this),
+        var $el = $(this),
             $form = $el.closest('form'),
-            data  = queryStringToObject($form.serialize()),
-            eventName = $el.data( 'websocket-on');
+            data = queryStringToObject($form.serialize()),
+            eventName = $el.data('websocket-on');
 
         var event = {
             name: 'websocket-on-submit',
@@ -64,6 +82,7 @@ if (window.WebSocket === undefined)
         };
 
         websocket.send(JSON.stringify(event));//Отправить сериализированный объект
+        $form.find('textarea').val('');
     }
 
     //Привязываем функцию к JQuery-объектам
@@ -86,20 +105,20 @@ if (window.WebSocket === undefined)
     websocket = new WebSocket(properties.uri);
     websocket.onmessage = onMessage;
 
-    websocket.onopen = function(msg) {
+    websocket.onopen = function (msg) {
         console.log(msg);
 
         console.log('Connection successfully opened');
     };
 
 
-    websocket.onclose = function(msg) {
+    websocket.onclose = function (msg) {
         console.log(msg);
         console.log('Connection was closed.');
     }
 
 
-    websocket.error =function(err){
+    websocket.error = function (err) {
         console.log(err); // Write errors to console
     }
 

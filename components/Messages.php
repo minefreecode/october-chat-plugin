@@ -2,7 +2,8 @@
 
 use alekseypavlov\Chat\Models\Message;
 use Cms\Classes\ComponentBase;
-
+use October\Rain\Argon\Argon;
+use alekseypavlov\chat\Classes\WebsocketServerComponent;
 class Messages extends ComponentBase
 {
     /**
@@ -37,7 +38,12 @@ class Messages extends ComponentBase
     //Получаем объект сообщений
     public function getMessages()
     {
-        return Message::with('user')->orderBy('id')->get();
+        $messages =  Message::with('user')->orderBy('id')->get();
+        foreach ($messages as $message) {
+            $message->displayDate = Argon::createFromFormat("Y-m-d H:i:s", $message->created_at);
+        }
+
+        return $messages;
 
     }
 

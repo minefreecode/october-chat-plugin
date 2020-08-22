@@ -1,0 +1,12 @@
+<li class="user-message">
+    <div class="user-info">
+        <img src="{{ '/plugins/alekseypavlov/chat/assets/images/unnamed.png'|app }}" alt="avatar"/>
+        <div class="about">
+            <div class="name"> {{ message.user.username }}, {{ message.displayDate | date('H:i:s')  }}</div>
+        </div>
+        <br/>
+    </div>
+    <div class="message-text">
+        {{ message.text }}
+    </div>
+</li>

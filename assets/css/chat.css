@@ -38,8 +38,13 @@
 
 .chat-popup .user-message{
     margin-bottom: 15px;
+    color: #334D6D;
 }
 
-.send-form textarea{
+.chat-popup .send-form textarea{
     width: 100%;
+}
+
+.chat-popup .date{
+    color: #0d4b6c;
 }

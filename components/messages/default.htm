@@ -3,18 +3,14 @@
         <h1>Chat</h1>
         <ul>
             {% for message in __SELF__.messages %}
-            <li class="user-message">
-                <div class="user-info">
-                    <img src="{{ '/plugins/alekseypavlov/chat/assets/images/unnamed.png'|app }}" alt="avatar"/>
-                    <div class="about">
-                        <div class="name"> {{ message.user.username }}, {{ message.created_at }}</div>
-                    </div>
-                    <br/>
-                </div>
-                <div class="message-text">
-                    {{ message.text }}
-                </div>
-            </li>
+                {% if message.displayDate | date('Y-m-d')  != current_date %}
+                <span class="date">
+                    {{ message.displayDate | date('Y-m-d')  }}
+                </span>
+                    {% set current_date = message.displayDate | date('Y-m-d')  %}
+                {% endif %}
+
+            {% partial '@message_view' message=message%}
             <!--Выводим сообщение!-->
             {% endfor %}
         </ul>
