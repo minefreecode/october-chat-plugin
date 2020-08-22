@@ -47,7 +47,7 @@ class WebsocketServerComponent implements MessageComponentInterface
         $event = json_decode($message);
 
         //Добавляем сообщение в БД
-        $event->payload->msg = str_replace('%20', ' ', $event->payload->msg);
+        $event->payload->msg = urldecode($event->payload->msg);
         $created = Message::create(['user_id' => $event->payload->user_id, 'text' => $event->payload->msg]);
         $created->load(['user']);//Обновляем данные пользователя
 

@@ -48,7 +48,7 @@ if (window.WebSocket === undefined)
 
         let last_date = $('span.date:last').text().trim();
 
-        let item = (last_date != event.payload.date ? '<span class="date">' + event.payload.created_at + '</span>' : '')
+        let item = (last_date != event.payload.date ? '<span class="date">' + event.payload.date + '</span>' : '')
             +
             `<li class="user-message">
             <div class="user-info">
