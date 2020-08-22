@@ -3,7 +3,7 @@
         <h1>Chat</h1>
         <ul>
             {% for message in __SELF__.messages %}
-            <li>{{ message.user.username }}, {{ message.created_at }}<br/> {{ message.text }}</li>
+            <li><img src="{{ '/plugins/alekseypavlov/chat/assets/images/unnamed.png'|app }}" alt="avatar" /> {{ message.user.username }}, {{ message.created_at }}<br/> {{ message.text }}</li>
             <!--Выводим сообщение!-->
             {% endfor %}
         </ul>

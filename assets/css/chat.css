@@ -1,3 +1,10 @@
 .chat-popup form{
-    background-color: lightyellow;
+    background: #C5DDEB;
+    font: 14px/20px "Lato", Arial, sans-serif;
+    padding: 40px 0;
+    color: white;
+}
+
+.chat-popup img{
+    max-width: 15px;
 }

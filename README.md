@@ -1,4 +1,7 @@
-# Chat plugin for the popular October CMS using websockets
+# Chat plugin for the popular October CMS using websockets (без других сторонних ресурсов)
+Чат интегририруется с вашими существующими аккаунтами пользователей  `"october/rain"` автоматически. Напомню что данный плагин
+часто импользуется с `october`-шаблоном автоматом. При этом в вашей БД CMS должна быть таблица `users`. Поле `avatar` с картинками
+в `users` вы должны добавить сами
 
 ## Usage
 Add folder `alekseypavlov` to `plugins` as `plugins/alekseypavlov`
@@ -58,3 +61,10 @@ php7.2 artisan chat-server:run --port=8081
 ## Как поменять внешний вид
 Вы можете сами менять шаблон внешнего вида.
 Редактирование шаблона врешнего вида происходит в файле `plugins\alekseypavlov\chat\components\messages\default.htm`.
+
+## Как применить автар ваших аккаунтов October
+Данный плагин работает с вашими аккаунтами October автоматом. Чтобы применить аватары ваших аккунтов пользователя
+необходимо чтобы в таблицах `users` имелось поле для хранения автара, например, `avatar`. В случае наличия такого поля
+можно смело добавить в шаблон `plugins\alekseypavlov\chat\components\messages\default.htm` вместо
+`<img src="{{ '/plugins/alekseypavlov/chat/assets/images/unnamed.png'|app }}" alt="avatar" />` такую запись
+`<img src="{{ message.user.avatar }}" alt="avatar" />`
