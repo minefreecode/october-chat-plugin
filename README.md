@@ -1,26 +1,26 @@
-# Плагин чата для популярной CMS October с использованием веб-сокетов
+# Chat plugin for the popular October CMS using websockets
 
-## Использование
+## Usage
 
-### Запуск сервера
+### Server start
 
-```shell
-php artisan chat-server:run
-```
+shell
+php artisan chat-server: run
+``,
 
-Можно указать порт `--port` если хотите, по умолчанию `8080`.
+You can specify the port `--port` if you like, the default is` 8080`.
 
-### Прикрепите компонент
+### Attach component
 
-Добавьте компонент на вашу страницу/шаблон.
-Вы можете поставит свойство `uri` если запускаете с другим портом.
-По умолчанию `ws://localhost:8080/`.
+Add component to your page / template.
+You can set the `uri` property if running on a different port.
+The default is `ws: // localhost: 8080 /`.
 
-```ini
+,,, ini
 [chat]
 ==
-{% component messages %}
-```
+{% component messages%}
+``,
 
-## Если нужна доработка пишите в Telegram
-Telegram - @programmer36
+## If you need improvement, write to Telegram
+Telegram - @ programmer36
