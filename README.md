@@ -16,11 +16,9 @@ Add component to your page / template.
 You can set the `uri` property if running on a different port.
 The default is `ws: // localhost: 8080 /`.
 
-,,, ini
+``` ini
 [chat]
 ==
 {% component messages%}
 ``,
 
-## If you need improvement, write to Telegram
-Telegram - @ programmer36
