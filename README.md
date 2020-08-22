@@ -4,9 +4,9 @@
 
 ### Server start
 
-shell
-php artisan chat-server: run
-``,
+```shell
+php artisan chat-server:run
+```
 
 You can specify the port `--port` if you like, the default is` 8080`.
 
@@ -14,11 +14,11 @@ You can specify the port `--port` if you like, the default is` 8080`.
 
 Add component to your page / template.
 You can set the `uri` property if running on a different port.
-The default is `ws: // localhost: 8080 /`.
+The default is `ws://localhost:8080/`.
 
-``` ini
+```ini
 [chat]
 ==
-{% component messages%}
-``,
+{% component messages %}
+```
 
