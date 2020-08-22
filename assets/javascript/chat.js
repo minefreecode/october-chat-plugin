@@ -6,7 +6,7 @@ if (window.WebSocket === undefined)
 
 //Эта функция выполняется немедленно с JQuery
 +function ($) {
-    "use strict";
+    //"use strict";
 
     /**
      * Данные запроса переодим в объект
@@ -85,5 +85,22 @@ if (window.WebSocket === undefined)
     //Создаем клиентский сервер
     websocket = new WebSocket(properties.uri);
     websocket.onmessage = onMessage;
+
+    websocket.onopen = function(msg) {
+        console.log(msg);
+
+        console.log('Connection successfully opened');
+    };
+
+
+    websocket.onclose = function(msg) {
+        console.log(msg);
+        console.log('Connection was closed.');
+    }
+
+
+    websocket.error =function(err){
+        console.log(err); // Write errors to console
+    }
 
 }(jQuery);
