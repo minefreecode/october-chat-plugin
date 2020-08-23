@@ -23,6 +23,9 @@ class WebsocketServerComponent implements MessageComponentInterface
     public function __construct()
     {
         $this->connections = new \SplObjectStorage;
+        foreach ( $this->connections as $conn){
+            $this->connections->detach($conn);
+        }
     }
 
     /**
@@ -51,17 +54,13 @@ class WebsocketServerComponent implements MessageComponentInterface
         $created = Message::create(['user_id' => $event->payload->user_id, 'text' => $event->payload->msg]);
         $created->load(['user']);//Обновляем данные пользователя
 
-        $event->payload->username = $created->user->username;
+        $event->payload->username = $created->user->name;
         $date = Argon::createFromFormat("Y-m-d H:i:s", $created->created_at);
         $event->payload->created_at = $date->format("H:i:s");
         $event->payload->date = $date->format("Y-m-d");
 
-        foreach ($this->connections as $connection) {
-            //Сообщение отправляем только туда куда еще не отправляли
-            if ($connection == $from_connection) {
-                continue;
-            }
 
+        foreach ($this->connections as $connection) {
             $connection->send(json_encode($event));
         }
     }
